@@ -20,25 +20,33 @@ def make_one(text: str):
             splitted.pop(0)
             splitted.pop(0)
         except:
+            log.write("in the exception")
             t.misc_data.error=True
             return None
     log.write("Entering for-loop")
     for word in splitted:
+        print(splitted)
+        print("word:"+word)
+        foundameaning = False
         if splitted == []:
             break
 
         for sentence in valid_words:
             if word in sentence.split():
                 final_atc.append(word)
-            else:
-                try: 
-                    temp = int(word)
-                    final_atc.append(word)
-                except:
-                    t.misc_data.error=True
-                    break
+                foundameaning = True
+                break
+            elif word == splitted[len(splitted)-1]:
+                final_atc.append(word)
+                foundameaning = True
+                break
 
-    return final_atc
+        if foundameaning==False:    
+            log.write("nothing in sentences or last word detected")
+            t.misc_data.error=True
+            return None
+
+    return " ".join(final_atc)
 
 
 #def transform():

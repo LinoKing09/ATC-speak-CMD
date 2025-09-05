@@ -20,3 +20,4 @@ while (True):
             tools.misc_data.error = False
         else: 
             sc.speak(ATC_CMD)
+            print("yay")
