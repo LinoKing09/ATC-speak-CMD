@@ -1,0 +1,7 @@
+{
+    "include_callsign":true,
+    "airline_designator":"ICAO",
+    "auto_enter":false,
+    "cmdline_pos":[111,222],
+    "atc_sim":"ATC Manager 2"
+}
